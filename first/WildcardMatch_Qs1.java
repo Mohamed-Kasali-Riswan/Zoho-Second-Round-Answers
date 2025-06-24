@@ -7,7 +7,8 @@ package first;
 */
 
 public class WildcardMatch_Qs1 {
-	
+
+	//This is method 1 --
 	public static boolean isMatch(String s, String p) {
         int i=0,j=0,start=-1,match=0;
         while(i<s.length()){
@@ -29,6 +30,15 @@ public class WildcardMatch_Qs1 {
         }
         return j==p.length();
     }
+
+	// This is method 2 --
+	private static boolean isPatternMatch(String text,String pattern) {
+		
+		String regex = pattern.replace(".","\\.").replace("*",".*").replace("?",".");
+		
+		return text.matches(regex);
+		
+	}
 
     public static void main(String[] args) {
         System.out.println(isMatch("abcde", "a*de"));      // true
